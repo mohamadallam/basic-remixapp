@@ -1,0 +1,18 @@
+body,
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+* {
+  outline: "none";
+  text-decoration: none;
+  list-style: none;
+}
+
+.client main {
+  margin-top: 70px;
+  min-height: 70vh;
+  text-align: center;
+}
