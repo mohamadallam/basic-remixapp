@@ -41,7 +41,15 @@ export default function SearchAppBar() {
           >
             MyShop
           </Typography>
-          <AutoComplete></AutoComplete>
+          <Box
+            sx={{
+              maxWidth: 300,
+              width: "100%",
+              display: { sm: "block", xs: "none" },
+            }}
+          >
+            <AutoComplete></AutoComplete>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

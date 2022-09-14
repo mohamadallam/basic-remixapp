@@ -11,11 +11,12 @@ import { useTheme } from "@mui/material/styles";
 
 export default function FreeSoloCreateOptionDialog() {
   const [value, setValue] = React.useState<Product | null>(null);
+
   const theme = useTheme();
   const fetch = useFetcher();
 
   React.useEffect(() => {
-    fetch.load(`/api/serach`);
+    fetch.load(`/api/search`);
   }, []);
   console.log(fetch?.data);
   return (
@@ -51,7 +52,6 @@ export default function FreeSoloCreateOptionDialog() {
         sx={{
           maxWidth: 300,
           width: "100%",
-          display: { sm: "block", xs: "none" },
         }}
         freeSolo
         renderInput={(params) => (
@@ -59,6 +59,9 @@ export default function FreeSoloCreateOptionDialog() {
             {...params}
             placeholder="Search..."
             variant="standard"
+            onChange={(event) =>
+              fetch.load(`/api/search?q=${event.target.value}`)
+            }
             InputProps={{
               disableUnderline: true,
               ...params.InputProps,
