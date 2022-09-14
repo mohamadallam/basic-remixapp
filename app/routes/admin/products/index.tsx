@@ -12,13 +12,20 @@ import {
 import { db } from "~/utils/db.server";
 import { useLoaderData } from "@remix-run/react";
 export const loader: LoaderFunction = async () => {
-  const products = await db.product.findMany({
-    take: 20,
-    orderBy: { createdAt: "desc" },
-  });
-  return {
-    products,
-  };
+  try {
+    const products = await db.product.findMany({
+      take: 20,
+      orderBy: { createdAt: "desc" },
+    });
+    return {
+      products,
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      products: [],
+    };
+  }
 };
 
 // export const action: ActionFunction = async ({ request }) => {
