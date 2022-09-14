@@ -33,7 +33,8 @@ Now you'll need to pick a host to deploy it to.
 ```sh
 # installed dependecies
 npm i @emotion/react @emotion/styled  @mui/icons-material  @mui/material @prisma/client  prisma
-
+# initialize prisma
+npx prisma init --datasource-provider sqlite
 # prisma studio
 npx prisma studio
 # seed database
